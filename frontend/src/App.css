@@ -1,0 +1,156 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* App layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  color: #00bcd4;
+  text-align: center;
+}
+
+/* Container for video and canvas */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-canvas {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 4/3;
+  background: #000;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+/* Stats panel */
+.stats {
+  margin-top: 20px;
+  padding: 15px;
+  background: #2a2a2a;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 640px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat-value.alert {
+  color: #00bcd4;
+}
+
+.stat-value.drowsy {
+  color: #ff5252;
+  animation: blink 0.7s infinite;
+}
+
+/* Blink animation for drowsy */
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0.3;
+  }
+}
+
+/* Connection status */
+.status {
+  margin-top: 12px;
+  padding: 10px;
+  background: #2a2a2a;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  width: 100%;
+  max-width: 640px;
+}
+
+.status.connected {
+  color: #00bcd4;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 16px;
+  background: #00bcd4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background: #00a3b8;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: #555;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .stats {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  button {
+    width: 100%;
+  }
+}
