@@ -12,6 +12,9 @@ git clone https://github.com/andrianllmm/try-dms.git
 
 ```bash
 cd backend # Navigate to the backend directory
+
+cp .env.example .env # Copy the .env.example file to .env
+
 python -m venv venv # Create a virtual environment
 source venv/bin/activate # Activate the virtual environment
 pip install -r requirements.txt # Install required packages
@@ -19,7 +22,9 @@ pip install -r requirements.txt # Install required packages
 
 ```bash
 cd frontend # Navigate to the frontend directory
+
 cp .env.example .env # Copy the .env.example file to .env
+
 npm install # Install required packages
 ```
 
