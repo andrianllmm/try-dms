@@ -5,6 +5,8 @@ import { useWebSocket } from "./hooks/useWebSocket";
 import { useFrameSender } from "./hooks/useFrameSender";
 import VideoCanvas from "./components/VideoCanvas";
 
+const WS_URL = import.meta.env.VITE_WS_URL;
+
 function App() {
   const { videoRef, startCamera, stopCamera } = useCamera();
   const canvasRef = useRef(null);
@@ -21,17 +23,14 @@ function App() {
   });
 
   // WebSocket setup
-  const { connect, send, disconnect } = useWebSocket(
-    "ws://localhost:8001/ws",
-    (data) => {
-      setFrameData(data);
-      setStats({
-        ear: data.ear || "--",
-        status: data.message || "--",
-        isDrowsy: data.is_drowsy,
-      });
-    }
-  );
+  const { connect, send, disconnect } = useWebSocket(WS_URL, (data) => {
+    setFrameData(data);
+    setStats({
+      ear: data.ear || "--",
+      status: data.message || "--",
+      isDrowsy: data.is_drowsy,
+    });
+  });
 
   // Frame sender setup
   const { start: startSending, stop: stopSending } = useFrameSender(

@@ -19,6 +19,7 @@ pip install -r requirements.txt # Install required packages
 
 ```bash
 cd frontend # Navigate to the frontend directory
+cp .env.example .env # Copy the .env.example file to .env
 npm install # Install required packages
 ```
 
